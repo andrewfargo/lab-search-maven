@@ -9,6 +9,7 @@ import java.util.function.Predicate;
 
 import edu.grinnell.csc207.util.SearchUtils;
 
+
 /**
  * Assorted experiments for searching structures.
  *
@@ -53,7 +54,18 @@ public class SearchExperiments {
     //String ex3c = SearchUtils.search(tmp, (str) -> str.length() == 7);
     // fails
 
-    pen.println(ex2c);
+    int[] testArr = new int[1000];
+
+    for (int i = 0; i < 1000; i++) {
+      testArr[i] = i;
+    }
+
+    for (int i = 0; i < 10; i ++) {
+      for (int k = 0; k < Math.pow(2, i) + 1; k++) {
+        SearchUtils.binarySearch(testArr, 0, 0);
+      }
+    }
+    
     pen.close();
   } // main(String[])
 } // class SearchUtils

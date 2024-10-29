@@ -51,7 +51,7 @@ public class TestSearch {
    */
   void assertBinarySearchFinds(int expected, int[] values, int val) 
       throws Exception {
-    assertEquals(expected, SearchUtils.binarySearch(values, val),
+    assertEquals(expected, SearchUtils.binarySearch(values, val, 0),
         () -> bsCall(values, val));
   } // assertBinarySearchFinds(int, int[], int)
 
@@ -63,7 +63,7 @@ public class TestSearch {
    *   The value we're searching for.
    */
   void assertBinarySearchFinds(int[] values, int val) throws Exception {
-    assertEquals(val, values[SearchUtils.binarySearch(values, val)],
+    assertEquals(val, values[SearchUtils.binarySearch(values, val, 0)],
         () -> String.format("values[%s]", bsCall(values, val)));
   } // assertBinarySearchFinds(int[], int)
 
@@ -78,7 +78,7 @@ public class TestSearch {
    */
   void assertBinarySearchFails(int[] values, int val) throws Exception {
     assertThrows(Exception.class,
-        () -> SearchUtils.binarySearch(values, val),
+        () -> SearchUtils.binarySearch(values, val, 0),
         () -> bsCall(values, val));
   } // assertBinarySearchFails()
 

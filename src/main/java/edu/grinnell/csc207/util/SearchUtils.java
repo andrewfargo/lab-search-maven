@@ -32,9 +32,11 @@ public class SearchUtils {
    *   values[index] == val
    */
   static int iterativeBinarySearch(int[] vals, int val) throws Exception {
+    int count = 0;
     int lb = 0;
     int ub = vals.length;
     while (lb < ub) {
+      count++;
       int test = (lb + ub) / 2;
       if (vals[test] < val) {
         lb = test + 1;
@@ -42,9 +44,11 @@ public class SearchUtils {
         ub = test;
       } else {
         // We've found it
+        System.out.println(count);
         return test;
       } // if/else
     }
+    System.out.println(count);
     throw new Exception("No value found.");
   } // iterativeBinarySearch
 
@@ -65,8 +69,8 @@ public class SearchUtils {
    * @post
    *   values[index] == val
    */
-  static int recursiveBinarySearch(int[] vals, int val) throws Exception {
-    return 0;   // STUB
+  static int recursiveBinarySearch(int[] vals, int val, Integer count) throws Exception {
+    return rbsHelper(vals, 0, vals.length, val, count);
   } // recursiveBinarySearch
 
   /**
@@ -91,8 +95,21 @@ public class SearchUtils {
    * @post
    *   values[index] == val
    */
-  static int rbsHelper(int[] vals, int lb, int ub, int val) throws Exception {
-    return 0;   // STUB
+  static int rbsHelper(int[] vals, int lb, int ub, int val, Integer count) throws Exception {
+    count++;
+    int middleT = (lb + ub) / 2;
+    if (!(lb < ub)) {
+      throw new Exception();
+    } // if
+
+    if (vals[middleT] < val) {
+      return rbsHelper(vals, middleT + 1, ub, val, count);
+    } else if (vals[middleT] > val) {
+      return rbsHelper(vals, lb, middleT, val, count);
+    } else {
+      System.out.println(count);
+      return middleT;
+    } // if/elseif/else
   } // rbsHelper
 
   // +----------------+----------------------------------------------
@@ -142,9 +159,9 @@ public class SearchUtils {
    * @post
    *   values[index] == val
    */
-  public static int binarySearch(int[] vals, int val) throws Exception {
-    return iterativeBinarySearch(vals, val);
-    // return recursiveBinarySearch(vals, val);
+  public static int binarySearch(int[] vals, int val, Integer count) throws Exception {
+    // return iterativeBinarySearch(vals, val);
+     return recursiveBinarySearch(vals, val, count);
   } // binarySearch
 
 } // class SearchUtils
