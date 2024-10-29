@@ -126,4 +126,48 @@ public class TestSearch {
     assertBinarySearchFinds(new int[] { 1, 1, 1, 2, 2, 3 }, 3);
   } // testBinarySearchDups()
 
+  /**
+   * Finds each value in the range 0-50 correctly
+   * @throws Exception
+   */
+  @Test
+  void findRange() throws Exception {
+    int[] arr = new int[50];
+    for (int i = 0; i < 50; i++) {
+      arr[i] = i;
+    } // for
+    for (int i = 0; i < 50; i++) {
+      assertBinarySearchFinds(i, arr, i);
+    } // for
+  } // findRange
+
+  /**
+   * Finds each value in the range -50-0 correctly
+   * @throws Exception
+   */
+  @Test 
+  void findNegatives() throws Exception {
+    int[] arr = new int[50];
+    for (int i = -50; i < 0; i++) {
+      arr[i + 50] = i;
+    } // for
+    for (int i = -50; i < 0; i++) {
+      assertBinarySearchFinds(i + 50, arr, i);
+    } // for
+  } // findNegatives
+
+  /**
+   * Finds each value in the range 0-50 (only odds) correctly
+   * @throws Exception
+   */
+  @Test 
+  void findOdds() throws Exception {
+    int[] arr = new int[25];
+    for (int i = 0; i < 25; i++) {
+      arr[i] = 2 * i + 1;
+    } // for
+    for (int i = 0; i < 25; i++) {
+      assertBinarySearchFinds(i, arr, 2 * i + 1);
+    } // for
+  } // findsOdds
 } // class TestSearch
