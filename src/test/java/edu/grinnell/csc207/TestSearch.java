@@ -170,4 +170,24 @@ public class TestSearch {
       assertBinarySearchFinds(i, arr, 2 * i + 1);
     } // for
   } // findsOdds
+
+  /**
+   * Finds each value in the range 0-50 (only odds) correctly
+   * @throws Exception
+   */
+  @Test 
+  void findEvens() throws Exception {
+    for (int i = 1; i < 33; i++) {
+      int[] arr = new int[i];
+      for (int j = 0; j < i; j++) {
+        arr[j] = 2 * j;
+      } // for
+      for (int l = 0; l < i; l++) {
+        assertBinarySearchFinds(l, arr, 2 * l);
+        assertBinarySearchFails(arr, l * 2 + 1);
+      } // for
+      assertBinarySearchFails(arr, -1);
+    } // for
+  } // findsEvens
+
 } // class TestSearch
