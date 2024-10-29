@@ -4,8 +4,8 @@ A lab on linear and binary search.
 
 Authors:
 
-* Your Name Here
-* Your Name Here
+* Richard Lin
+* Andrew Fargo
 * Samuel A. Rebelsky (starter code)
 
-This code may be found at <INSERT-URL>. Original code at <https://github.com/Grinnell-CSC207/lab-search-maven>.
+This code may be found at <https://github.com/andrewfargo/lab-search-maven>. Original code at <https://github.com/Grinnell-CSC207/lab-search-maven>.
